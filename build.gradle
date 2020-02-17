@@ -1,0 +1,55 @@
+plugins {
+    id 'application'
+    id 'java'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+group 'org.netomi'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.11
+
+javafx {
+    version = "13"
+    modules = [ 'javafx.controls', 'javafx.graphics', 'javafx.fxml' ]
+}
+
+mainClassName = 'life/org.netomi.life.LifeApplication'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'org.netomi.life.Launcher'
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+run {
+    jvmArgs = [
+            "--add-opens", "java.base/java.lang=guice,ALL-UNNAMED"
+    ]
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation 'com.gluonhq:ignite-guice:1.0.2'
+
+    runtimeOnly "org.openjfx:javafx-controls:$javafx.version:win"
+    runtimeOnly "org.openjfx:javafx-controls:$javafx.version:linux"
+    runtimeOnly "org.openjfx:javafx-controls:$javafx.version:mac"
+
+    runtimeOnly "org.openjfx:javafx-fxml:$javafx.version:win"
+    runtimeOnly "org.openjfx:javafx-fxml:$javafx.version:linux"
+    runtimeOnly "org.openjfx:javafx-fxml:$javafx.version:mac"
+
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:win"
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:linux"
+    runtimeOnly "org.openjfx:javafx-graphics:$javafx.version:mac"
+
+    testCompile 'junit:junit:4.12'
+}

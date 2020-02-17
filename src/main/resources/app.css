@@ -1,0 +1,21 @@
+.grid {
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+}
+
+.cell {
+    -fx-border-color: grey;
+    -fx-border-width: 0.5px;
+    -fx-border-insets: 1px;
+    -fx-background-color:derive(white,0.9);
+}
+
+.cell:hover {
+    -fx-border-color: yellow;
+    -fx-border-width: 1px;
+}
+
+.cell-alive {
+    -fx-border-color: white;
+    -fx-background-color: black;
+}
