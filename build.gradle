@@ -14,7 +14,7 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.graphics', 'javafx.fxml' ]
 }
 
-mainClassName = 'life/org.netomi.life.LifeApplication'
+mainClassName = 'netomi.life/org.netomi.life.LifeApplication'
 
 jar {
     manifest {
