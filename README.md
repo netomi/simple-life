@@ -23,3 +23,6 @@ Run the app:
 ./gradlew run
 ```
 
+## Examples
+
+![Screenshot](https://raw.githubusercontent.com/netomi/simple-life/master/images/simple-life-example.png)
